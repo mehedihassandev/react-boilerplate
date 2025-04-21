@@ -1,27 +1,11 @@
 module.exports = {
+  extends: ['@commitlint/config-conventional'],
   rules: {
-    'type-enum': [2, 'always', ['RB']], // Enforce "NE" type
-    'header-max-length': [2, 'always', 50000], // Enforce header length
-    'scope-empty': [0], // Disable default scope-empty rule
-    'scope-case': [2, 'always', 'lower-case'], // Ensure scope is lowercase
+    'type-enum': [2, 'always', ['RB']],
+    'type-case': [0], // Disable type-case enforcement
+    'subject-case': [0], // Disable subject-case enforcement
+    'header-max-length': [2, 'always', 10000],
+    'scope-empty': [0],
+    'scope-case': [2, 'always', 'lower-case'],
   },
-  plugins: [
-    {
-      rules: {
-        'scope-pattern': (parsed) => {
-          if (!parsed.scope) {
-            return [false, `Scope must not be empty.`];
-          }
-
-          const scopePattern = /^[0-9]{3}$/; // Match 3-digit numeric scope
-
-          return [
-            scopePattern.test(parsed.scope),
-            `Scope must be a 3-digit number (e.g., 000, 123).`,
-          ];
-        },
-      },
-    },
-  ],
-  extends: [],
 };
