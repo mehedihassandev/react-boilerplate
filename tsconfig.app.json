@@ -20,7 +20,25 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/app/components/*"],
+      "@constants/*": ["src/app/constants/*"],
+      "@contexs/*": ["src/app/contexts/*"],
+      "@helper/*": ["src/app/helper/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@layout/*": ["src/app/layout/*"],
+      "@libs/*": ["src/app/libs/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@models/*": ["src/app/models/*"],
+      "@navigation/*": ["src/app/navigation/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@redux/*": ["src/app/redux/*"],
+      "@styles/*": ["src/styles/*"]
+    }
   },
   "include": ["src"]
 }

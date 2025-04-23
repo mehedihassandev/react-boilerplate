@@ -3,6 +3,9 @@ import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
+import prettier from 'eslint-plugin-prettier';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import eslintPluginImport from 'eslint-plugin-import';
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -16,10 +19,9 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      '@typescript-eslint': tseslint,
-      prettier: require('eslint-plugin-prettier'),
-      'simple-import-sort': require('eslint-plugin-simple-import-sort'),
-      import: require('eslint-plugin-import'),
+      prettier,
+      'simple-import-sort': simpleImportSort,
+      import: eslintPluginImport,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -41,12 +43,20 @@ export default tseslint.config(
             ['^react', '^@?\\w'],
             // Internal packages.
             ['^(@|components)(/.*|$)'],
-            // lib imports
-            ['^(@|lib)(/.*|$)'],
+            // Constants imports.
+            ['^(@|constants)(/.*|$)'],
+            // Models imports.
+            ['^(@|models)(/.*|$)'],
+            // Helpers imports.
+            ['^(@|helpers)(/.*|$)'],
             // Database imports.
             ['^(@|database)(/.*|$)'],
             // Hooks imports.
             ['^(@|hooks)(/.*|$)'],
+            // Redux imports.
+            ['^(@|redux)(/.*|$)'],
+            // lib imports
+            ['^(@|libs)(/.*|$)'],
             // Utils imports.
             ['^(@|utils)(/.*|$)'],
             // Parent imports. Put `..` last.
